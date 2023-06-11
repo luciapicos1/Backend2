@@ -1,0 +1,9 @@
+<ul>
+    {% for destination in destinations %}
+      <li>
+        <h3>{{ destination.name }}</h3>
+        <p>País: {{ destination.pais }}</p>  <!-- Agrega esta línea -->
+        <p>{{ destination.description }}</p>
+      </li>
+    {% endfor %}
+  </ul>

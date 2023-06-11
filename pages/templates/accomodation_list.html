@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Accomodation List</h1>
+
+  <form method="GET">
+    <label for="min_price">Minimum price:</label>
+    <input type="number" name="min_price" id="min_price">
+    <label for="max_price">Maximum price:</label>
+    <input type="number" name="max_price" id="max_price">
+    <button type="submit">Filter</button>
+  </form>
+
+  <ul>
+    {% for accommodation in accommodation_list %}
+      <li>{{ accommodation.name }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

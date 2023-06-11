@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel planning 101</title>
+</head>
+<body>
+    <h1>Benvenuti</h1>
+    {% if user.is_authenticated %}
+        <p>Ciao, {{ user.username }}. ¡Sei connesso!</p>
+        <a href="{% url 'logout' %}">Disconnettersi</a>
+    {% else %}
+        <p>Per favore, <a href="{% url 'login' %}">accesso</a>.</p>
+        <p>Non avete un account? <a href="{% url 'register' %}">Registro</a>.</p>
+    {% endif %}
+</body>
+</html>

@@ -20,11 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-mh)$-%u7$$5gs2qdegj)3+ql2$sf1svm+jg$a)-%!1v6&b%4o@'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY','qqmEnO2p42_5XvHUHQo2CMy0npDDf3XDhPG0bCWvgT0')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'True'
 ALLOWED_HOSTS = ["djangorailway-production.up.railway.app", "127.0.0.1", "localhost"]
 CSRF_TRUSTED_ORIGINS = ['https://djangorailway-production.up.railway.app']
 
@@ -77,16 +77,16 @@ WSGI_APPLICATION = 'proyectoFinal.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-#import dj_database_url
-#db_from_env = dj_database_url.config(conn_max_age = 500)
-#DATABASES = ['default'].update(db_from_env)
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age = 500)
+DATABASES = ['default'].update(db_from_env)
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.sqlite3',
+   #     'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+#}
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
